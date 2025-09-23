@@ -17,9 +17,8 @@ int main()
 
     //2. 시간 사용
     srand((unsigned int)time(nullptr));
-
-    //3. 중복값 생김
     
+    //3. 값 체인지
     for (int i = 0; i < 52; i++)
     {
         int First = rand() % 52;
