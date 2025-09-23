@@ -1,36 +1,28 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
 
 using namespace std;
 
-//int select;
+#define MAX_SIZE 52
 
 int main()
 {
-    int pocket[52];
+    int pocket[MAX_SIZE];
 
-    for (int i = 0; i <= 51; i++)
+    for (int i = 0; i < MAX_SIZE; i++)
     {
         pocket[i] = i + 1;
     }
 
-    //2. 시간 사용
-    srand((unsigned int)time(nullptr));
-    
-    //3. 값 체인지
-    for (int i = 0; i < 52; i++)
-    {
-        int First = rand() % 52;
-        int Second = rand() % 52;
-        int Temp = 0;
+    //#include <algorithm>에 들어있는 기능임
+    random_shuffle(&pocket[0], &pocket[51]);
 
-        Temp = pocket[First];
-        pocket[First] = pocket[Second];
-        pocket[Second] = Temp;
-    }
-    for (int i = 0; i < 52; i++) 
+    for (int i = 0; i < MAX_SIZE; i++)
     {
-        printf("%d\n", pocket[i]);
+        cout << pocket[i] << endl;
     }
+    
+    return 0;
 }
