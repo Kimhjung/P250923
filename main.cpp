@@ -3,33 +3,92 @@
 #include <algorithm>
 
 using namespace std;
+/* 
+// ___ Case 1 ___
+// 끝나면 그냥 없어짐
+void Swap(int A, int B)
+{
+    int Temp = A;
+    A = B;
+    B = Temp;
+}
 
 int main()
 {
-    //Pointer
-    /*
-    //메모리 위치 잡기
-    int* P = new int;
+    int A = 10;
+    int B = 20;
 
-    //두개 같은거
-    int* P = 0;
-    int* P = nullptr;       //C++에만 있음
+    //사용할 변수의 주소값을 넣음
+    Swap(A, B);
 
-    *P = 1;
-    */
+    //반환 안됨
+    cout << A << endl;
+    cout << B << endl;
 
-    /*포인터가 지워질 때
-    * 1. delete 했을 때
-    * 2. main 함수가 중단됐을 때
-    * 3. 컴퓨터가 다운됐을 때
-    */
-    bool* A = new bool;
+    return 0;
+}
 
-    *A = true;
+// 출력값 : 10 '\n' 20
+*/
 
-    cout << A;
+/*
+// ___ Case2 ___
+//Array의 경우, 메모리 8byte 차지함
+//int, char 등의 데이터 타입은 4byte차지함
+//int, char 같은 경우 Pointer를 사용하지 않음
+void Swap(int* PA, int* PB)
+{
+    //Temp에 PA 주소의 값을 넣어줌
+    int Temp = *PA;
+    *PA = *PB;
+    *PB = Temp;
+}
 
-    delete A;
+int main()
+{
+    int A = 10;
+    int B = 20;
+
+    //사용할 변수의 주소값을 넣음
+    Swap(&A, &B);
+
+    cout << A << endl;
+    cout << B << endl;
+
+    return 0;
+}
+*/
+
+// ___ Case 3 ___
+/*
+// C용
+void Swap(int* PA, int* PB)
+{
+    //Temp에 PA 주소의 값을 넣어줌
+    int Temp = *PA;
+    *PA = *PB;
+    *PB = Temp;
+}
+*/
+
+void Swap(int& PA, int& PB)
+{
+    //Temp에 PA 주소의 값을 넣어줌
+    int Temp = PA;
+    PA = PB;
+    PB = Temp;
+}
+
+int main() 
+{
+    int A = 10;
+    int B = 20;
+
+    //사용할 변수의 주소값을 넣음
+    Swap(A, B);
+
+    cout << A << endl;
+    cout << B << endl;
 
     return 0;
 }
