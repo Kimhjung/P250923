@@ -5,9 +5,9 @@
 using namespace std;
 
 
-int main() 
+int main()
 {
-   int Number[10] = { 0,1,2,3,4,5 };
+    int Number[10] = { 0,1,2,3,4,5 };
 
     int* P = Number;
 
